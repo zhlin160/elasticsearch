@@ -321,8 +321,8 @@ class ElasticSearch
                     'client' => ['ignore' => $this->ignores],
                     'body' => ['doc' => $v],
                 ];
-                $updated =  $this->elasticsearch->update($params);
-                $list->push($v[$this->_id]);
+                $updated =  $this->elasticsearch->update($params)->asArray();
+                $list->push($updated);
             }
             return $list;
         } else {
@@ -333,7 +333,7 @@ class ElasticSearch
                 'client' => ['ignore' => $this->ignores],
                 'body' => ['doc' => $data],
             ];
-            return $this->elasticsearch->update($params);
+            return $this->elasticsearch->update($params)->asArray();
         }
     }
 
@@ -361,7 +361,7 @@ class ElasticSearch
                 'index' => $this->_index,
                 'id'    => $ids
             ];
-            return $this->elasticsearch->delete($params);
+            return $this->elasticsearch->delete($params)->asArray();
         }
     }
 
@@ -375,7 +375,7 @@ class ElasticSearch
             'index' => $this->_index,
             'client' => ['ignore' => $this->ignores]
         ];
-        return $this->elasticsearch->indices()->delete($params);
+        return $this->elasticsearch->indices()->delete($params)->asArray();
     }
 
     /**
