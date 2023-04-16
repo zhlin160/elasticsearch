@@ -1,0 +1,26 @@
+{
+    "name": "zhlin160/elasticsearch",
+	"description": "elasticsearch",
+    "autoload": {
+        "psr-4": {
+            "Zhlin160\\Elasticsearch\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "zhlin163",
+            "email": "zhlin163@sina.com"
+        }
+    ],
+    "require": {
+		"php": "^7.4 || ^8.0",
+		"elasticsearch/elasticsearch": "^8.7",
+		"guzzlehttp/guzzle": "^7.0",
+		"monolog/monolog": "^2.0"
+	},
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
